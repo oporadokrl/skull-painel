@@ -1,14 +1,16 @@
 # Feito por Yato
 import os,time
 try:
-	from data import data,ui,cpf,cnpj,cpf2,tools,placa,cep,covid,ip
+	from data import data,ui,cpf,cnpj,cpf2,tools,placa,cep,covid,ip,banco,bin,update
 except:
+	from data import ui
 	choice = ui.dialog_choice('',2)
 	if choice == '01' or choice == '1':
 		os.system('pip3 install requests')
 	elif choice == '02' or choice == '2':
 		ui.dialog('Então instale por si ou isto é um adeus.\nSo install it by yourself or this is a goodbye.')
 	exit()
+
 def reload():
 	global lang,login,cpf_api,ip_api,placa_api,cnpj_api,anim
 	options = data.read()
@@ -30,21 +32,19 @@ def opt():
 		elif choice == '03' or choice == '3':
 			pass
 		else:
-			ui.dialog(lang[3])
-			time.sleep(3)
+			ui.dialog(lang[3]);time.sleep(3)
 	choice = ui.menu(lang[11]+'\n'+lang[39])
 	if choice == '1' or choice == '01':
 		set_lang()
 	elif choice == '2' or choice == '02':
 		pass
 	else:
-		ui.dialog(lang[3])
-		time.sleep(3)
+		ui.dialog(lang[3]);time.sleep(3)
 
 reload()
 Sair=False
 while(Sair == False):
-	choice = ui.menu(lang[8]+lang[14]+'\n'+lang[8]+lang[15]+'\n'+lang[8]+lang[16]+'\n'+lang[8]+lang[17]+'\n'+lang[8]+'Covid-19'+'\n'+lang[8]+'IP'+'\n'+lang[8]+lang[81]+'\n'+lang[50]+'\n'+lang[10]+'\n'+lang[4])
+	choice = ui.menu(lang[8]+lang[14]+'\n'+lang[8]+lang[15]+'\n'+lang[8]+lang[16]+'\n'+lang[8]+lang[17]+'\n'+lang[8]+'Covid-19'+'\n'+lang[8]+'IP'+'\n'+lang[8]+lang[81]+'\n'+lang[50]+'\n'+'Update'+'\n'+lang[10]+'\n'+lang[4])
 	if choice == '1' or choice == '01':
 		choice2 = ui.menu(lang[14]+' 1'+'\n'+lang[14]+' 2'+'\n'+lang[39])
 		if choice2 == '1' or choice2 =='01':
@@ -69,9 +69,9 @@ while(Sair == False):
 	elif choice == '7' or choice == '07':
 		choice = ui.menu(lang[8]+'BIN\n'+lang[8]+lang[81]+'\n'+lang[39])
 		if choice == '1' or choice == '01':
-			tools.dos()
+			bin.consultar(lang)
 		elif choice == '2' or choice == '02':
-			tools.bruteforce()
+			banco.consultar(lang)
 	elif choice == '8' or choice == '08':
 		choice = ui.menu('DoS\nBrute force\nWordlist\nNMAP\n'+lang[39])
 		if choice == '1' or choice == '01':
@@ -85,12 +85,21 @@ while(Sair == False):
 		elif choice == '5' or choice == '05':
 			pass
 		else:
-			ui.dialog(lang[3])
-			time.sleep(3)
+			ui.dialog(lang[3]);time.sleep(3)
 	elif choice == '9' or choice == '09':
+		choice2 = ui.menu('Novo método\nAntigo método\n'+lang[39])
+		if choice2 == '1' or choice == '01':
+			update.upgrade()
+		elif choice2 == '2' or choice2 == '02':
+			update.old_upgrade()
+		elif choice2 == '3' or choice2 == '03':
+			pass
+		else:
+			ui.dialog(lang[3]);time.sleep(3)
+	elif choice == '10':	
 		opt()
 		reload()
-	elif choice == '10':
+	elif choice == '11':
 		Sair = True
 	else:
 		ui.dialog(lang[3])

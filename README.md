@@ -1,4 +1,4 @@
-# SKULL PAINEL v0.5.1-beta
+# SKULL PAINEL v0.5.2-beta
 Um painel feito para ser simples e direto ao ponto.
 # Captura de tela / Screenshot
 ![Menu](https://github.com/oporadokrl/skull-painel/blob/master/skull-painel.PNG)
