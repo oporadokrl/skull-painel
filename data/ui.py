@@ -10,7 +10,7 @@ def clear():
 def banner():
 	clear()
 	print(f'''{C}
-{G} <==================Feito por YATO=====================>{R}
+{G}   <==================Feito por YATO=====================>{R}
     .o oOOOOo                                         OOOo
     Ob.OOOOOo  OOOo.      oOo.                    .adOOOOO
     OboO"""""""""".OOo. .oOOo.    OOOo.oOOOo..""""""""'OO

