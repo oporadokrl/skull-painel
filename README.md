@@ -1,5 +1,9 @@
 # SKULL PAINEL v0.5.2-beta
 Um painel feito para ser simples e direto ao ponto.
+
+# Projeto abandonado
+Devido a falta de suporte, o projeto está arquivado.
+
 # Captura de tela / Screenshot
 ![Menu](https://github.com/oporadokrl/skull-painel/blob/master/skull-painel.PNG)
 # Instalação / Install
